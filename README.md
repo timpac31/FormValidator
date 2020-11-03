@@ -1,23 +1,23 @@
 ## formValidator
-> HTML ±â¹İ form À¯È¿¼º °Ë»ç ¶óÀÌºê·¯¸®
+> HTML ê¸°ë°˜ form ìœ íš¨ì„± ê²€ì‚¬ ë¼ì´ë¸ŒëŸ¬ë¦¬
 <br/>
 
 ## Simple Practice 
-**1. form ÀüÃ¼ °ËÁõ**
+**1. form ì „ì²´ ê²€ì¦**
 ~~~
 <script src="formValidator.js"></script>
 
 <form id="frm" name="myForm">
-	<label for="username" class="tag">ÀÌ¸§</label>
-	<input type="text" id="username" name="username" valid-name="¼º¸í" valid-rule="required" />
-	<label for="useremail" class="tag">ÀÌ¸ŞÀÏ</label>
+	<label for="username" class="tag">ì´ë¦„</label>
+	<input type="text" id="username" name="username" valid-name="ì„±ëª…" valid-rule="required" />
+	<label for="useremail" class="tag">ì´ë©”ì¼</label>
 	<input type="text" id="useremail" name="useremail" valid-rule="email" />
 	<button type="button" class="btn" onclick="validate(myForm);">submit</button>
 </form>
 
 <script>
-var alertOption = 'window';    //¾Ë¸² ¿É¼Ç windowÀÏ °æ¿ì alert Ã¢À¸·Î ¿À·ù ¾Ë¸²
-//var alertOption = 'text';  //¾Ë¸² ¿É¼Ç textÀÏ °æ¿ì ÀÔ·ÂÆû ¾Æ·¡ text·Î ¾Ë¸²
+var alertOption = 'window';    //ì•Œë¦¼ ì˜µì…˜ windowì¼ ê²½ìš° alert ì°½ìœ¼ë¡œ ì˜¤ë¥˜ ì•Œë¦¼
+//var alertOption = 'text';  //ì•Œë¦¼ ì˜µì…˜ textì¼ ê²½ìš° ì…ë ¥í¼ ì•„ë˜ textë¡œ ì•Œë¦¼
 
 function validate(form) {
 	if(formValidator.validate(form, alertOption)) {
@@ -28,14 +28,14 @@ function validate(form) {
 ~~~
 <br/>
 
-**2. element ÇÏ³ª¾¿ °ËÁõ**
+**2. element í•˜ë‚˜ì”© ê²€ì¦**
 ~~~
 <script src="formValidator.js"></script>
 
 <form id="frm" name="myForm">
-	<label for="username" class="tag">ÀÌ¸§</label>
+	<label for="username" class="tag">ì´ë¦„</label>
 	<input type="text" id="username" name="username" />
-	<label for="useremail" class="tag">ÀÌ¸ŞÀÏ</label>
+	<label for="useremail" class="tag">ì´ë©”ì¼</label>
 	<input type="text" id="useremail" name="useremail" />
 	<button type="button" class="btn" onclick="validate(myForm);">submit</button>
 </form>
@@ -43,11 +43,11 @@ function validate(form) {
 <script>
 function validate(form) {
 	if(!formValidator.required(form.username.value)) {
-		alert('ÀÌ¸§Àº ÇÊ¼öÀÔ·ÂÀÔ´Ï´Ù');
+		alert('ì´ë¦„ì€ í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤');
 		return false;
 	}
 	if(!formValidator.email(form.usermail.value)) {
-		alert('ÀÌ¸ŞÀÏ Çü½ÄÀÌ Àß¸øµÇ¾ú½À´Ï´Ù');
+		alert('ì´ë©”ì¼ í˜•ì‹ì´ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤');
 		return false;
 	}
 
@@ -59,32 +59,33 @@ function validate(form) {
 
 ## Attribute
  * **valid-name**
-   * °æ°í ¸Ş½ÃÁöÀÇ Å¸°Ù ÀÌ¸§À» Á¤ÇÕ´Ï´Ù.  
-   * ¿ì¼±¼øÀ§´Â ´ÙÀ½°ú °°½À´Ï´Ù.
+   * ê²½ê³  ë©”ì‹œì§€ì˜ íƒ€ê²Ÿ ì´ë¦„ì„ ì •í•©ë‹ˆë‹¤.  
+   * ìš°ì„ ìˆœìœ„ëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
   ~~~
-  1. valid-name ¼Ó¼ºÀÌ ÀÖ´Â °æ¿ì
-  <label for="username">ÀÌ¸§</label><input type="text" id="username" name="username" valid-name="¼º¸í" valid-rule="required" /> ==> ¼º¸í
+  1. valid-name ì†ì„±ì´ ìˆëŠ” ê²½ìš°
+  <label for="username">ì´ë¦„</label><input type="text" id="username" name="username" valid-name="ì„±ëª…" valid-rule="required" /> ==> ì„±ëª…
   
-  2. valid-name ¼Ó¼ºÀÌ ¾øÀ»°æ¿ì labelÀÇ text°ªÀ¸·Î ¼³Á¤
-  <label for="username">ÀÌ¸§</label><input type="text" id="username" name="username" valid-rule="required" /> ==> ÀÌ¸§
+  2. valid-name ì†ì„±ì´ ì—†ì„ê²½ìš° labelì˜ textê°’ìœ¼ë¡œ ì„¤ì •
+  <label for="username">ì´ë¦„</label><input type="text" id="username" name="username" valid-rule="required" /> ==> ì´ë¦„
   
-  3. valid-name ¼Ó¼º°ú labelµµ ¾øÀ» ¶§´Â elementÀÇ name°ªÀ¸·Î ¼³Á¤
+  3. valid-name ì†ì„±ê³¼ labelë„ ì—†ì„ ë•ŒëŠ” elementì˜ nameê°’ìœ¼ë¡œ ì„¤ì •
   <input type="text" id="username" name="username" valid-rule="required" /> ==> username
   ~~~
 <br/>
   
  * **valid-rule**
-   * °ËÁõ·ê ¼Ó¼ºÀ» ¼³Á¤ÇÕ´Ï´Ù : [[valid-rule]](#valid-rule)
-   * ±¸ºĞÀÚ | ¸¦ »ç¿ëÇÏ¿© ÇÏ³ªÀÇ element¿¡ ¿©·¯°³ÀÇ ·êÀ» ¼³Á¤ÇÒ ¼ö ÀÖ½À´Ï´Ù. ¿¹) valid-rule="required|maxLength-10|onlyNum"
-   * rule- µÚ¿¡ ³ª¿À´Â °ªÀ¸·Î ÆÄ¶ó¹ÌÅÍ¸¦ ¼³Á¤ÇÕ´Ï´Ù. ¿¹) valid-rule="between-2-5"  //¼ıÀÚ 2~5»çÀÌÀÇ °ª¸¸ Çã¿ë
+   * ê²€ì¦ë£° ì†ì„±ì„ ì„¤ì •í•©ë‹ˆë‹¤ : [[valid-rule]](#valid-rule)
+   * êµ¬ë¶„ì | ë¥¼ ì‚¬ìš©í•˜ì—¬ í•˜ë‚˜ì˜ elementì— ì—¬ëŸ¬ê°œì˜ ë£°ì„ ì„¤ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. 
+    ì˜ˆ) valid-rule="required|maxLength-10|onlyNum"
+   * rule ë’¤ì— êµ¬ë¶„ì - ë¥¼ ì‚¬ìš©í•˜ì—¬ íŒŒë¼ë¯¸í„°ë¥¼ ì„¤ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. ì˜ˆ) valid-rule="between-2-5"  //ìˆ«ì 2~5ì‚¬ì´ì˜ ê°’ë§Œ í—ˆìš©
 <br/>
 
  * **valid-group**
-   * radio³ª checkbox typeÀÎ °æ¿ì ±×·ìÀ» ¸¸µé¾î ruleÀ» Á¤ÇÕ´Ï´Ù. valid-group °ªÀº radio,checkboxÀÇ name°ú °°¾Æ¾ß ÇÕ´Ï´Ù.
+   * radioë‚˜ checkbox typeì¸ ê²½ìš° ê·¸ë£¹ì„ ë§Œë“¤ì–´ ruleì„ ì •í•©ë‹ˆë‹¤. valid-group ê°’ì€ radio,checkboxì˜ nameê³¼ ê°™ì•„ì•¼ í•©ë‹ˆë‹¤.
 ~~~
-    <fieldset valid-group="hobby" valid-name="Ãë¹Ì" valid-rule="required">
-      <input type="checkbox" name="hobby" id="hobby1" value="µ¶¼­" /><label for="hobby1">µ¶¼­</label>
-		  <input type="checkbox" name="hobby" id="hobby2" value="¿îµ¿" /><label for="hobby2">¿îµ¿</label>
+    <fieldset valid-group="hobby" valid-name="ì·¨ë¯¸" valid-rule="required">
+      <input type="checkbox" name="hobby" id="hobby1" value="ë…ì„œ" /><label for="hobby1">ë…ì„œ</label>
+		  <input type="checkbox" name="hobby" id="hobby2" value="ìš´ë™" /><label for="hobby2">ìš´ë™</label>
     </fieldset>
 ~~~
 <br/>				
@@ -92,24 +93,24 @@ function validate(form) {
 ## <span id="valid-rule">valid-rule</span>
   rule name        | Description                                | parameter                   
 -------------------|--------------------------------------------|--------------------------------------
-`required`         | `ÇÊ¼ö°ª °ËÁõ`                               | `none`                      
-`email`            | `ÀÌ¸ŞÀÏ À¯È¿¼º °ËÁõ, abc@abc.com`           | `none`                     
-`emailFirst`       | `ÀÌ¸ŞÀÏ ¾ÕÀÚ¸®`                             | `none`                     
-`emailLast`        | `ÀÌ¸ŞÀÏ µŞÀÚ¸®`                             | `none`                      
-`phoneHyphen`      | `ÀüÈ­¹øÈ£ -Æ÷ÇÔ`                            | `none`                     
-`phoneOnlyNum`     | `ÀüÈ­¹øÈ£ -Á¦¿Ü`                            | `none`                     
-`phone`            | `ÀüÈ­¹øÈ£ -Æ÷ÇÔ/Á¦¿Ü µÑ´Ù Çã¿ë`              | `none`                     
-`max`              | `ÆÄ¶ó¹ÌÅÍ °ª ÀÌÇÏ¸¸ Çã¿ë`                    | `[max number]`             
-`min`              | `ÆÄ¶ó¹ÌÅÍ °ª ÀÌ»ó¸¸ Çã¿ë`                    | `[min number]`             
-`between`          | `ÆÄ¶ó¹ÌÅÍ °ª »çÀÌÀÇ °ª¸¸ Çã¿ë`               | `[min number, max number]` 
-`length`           | `ÆÄ¶ó¹ÌÅÍ °ª°ú °°Àº ¹®ÀÚ ±æÀÌ¸¸ Çã¿ë`         | `[length number]`          
-`maxLength`        | `ÆÄ¶ó¹ÌÅÍ °ª ÀÌÇÏÀÇ ¹®ÀÚ ±æÀÌ¸¸ Çã¿ë`         | `[max length number]`      
-`minLength`        | `ÆÄ¶ó¹ÌÅÍ °ª ÀÌ»óÀÇ ¹®ÀÚ ±æÀÌ¸¸ Çã¿ë`         | `[min length number]`      
-`betweenLength`    | `ÆÄ¶ó¹ÌÅÍ °ª »çÀÌÀÇ ¹®ÀÚ ±æÀÌ¸¸ Çã¿ë`         | `[min length number, max length number]`  
-`onlyNum`          | `¼ıÀÚ¸¸ Çã¿ë`                               | `none`                     
-`yyyymmdd`         | `³âµµ4ÀÚ¸® ¿ù2ÀÚ¸® ÀÏ2ÀÚ¸®`                  | `none`                     
-`equalTo`          | `´Ù¸¥ element¿Í °ª °°ÀºÁö ÆÇ´Ü`              | `[element id]`                     
-`notKorean`        | `ÇÑ±Û ÀÔ·Â ºÒ°¡´É`                           | `none`                     
+`required`         | `í•„ìˆ˜ê°’ ê²€ì¦`                               | `none`                      
+`email`            | `ì´ë©”ì¼ ìœ íš¨ì„± ê²€ì¦, abc@abc.com`           | `none`                     
+`emailFirst`       | `ì´ë©”ì¼ ì•ìë¦¬`                             | `none`                     
+`emailLast`        | `ì´ë©”ì¼ ë’·ìë¦¬`                             | `none`                      
+`phoneHyphen`      | `ì „í™”ë²ˆí˜¸ -í¬í•¨`                            | `none`                     
+`phoneOnlyNum`     | `ì „í™”ë²ˆí˜¸ -ì œì™¸`                            | `none`                     
+`phone`            | `ì „í™”ë²ˆí˜¸ -í¬í•¨/ì œì™¸ ë‘˜ë‹¤ í—ˆìš©`              | `none`                     
+`max`              | `íŒŒë¼ë¯¸í„° ê°’ ì´í•˜ë§Œ í—ˆìš©`                    | `[max number]`             
+`min`              | `íŒŒë¼ë¯¸í„° ê°’ ì´ìƒë§Œ í—ˆìš©`                    | `[min number]`             
+`between`          | `íŒŒë¼ë¯¸í„° ê°’ ì‚¬ì´ì˜ ê°’ë§Œ í—ˆìš©`               | `[min number, max number]` 
+`length`           | `íŒŒë¼ë¯¸í„° ê°’ê³¼ ê°™ì€ ë¬¸ì ê¸¸ì´ë§Œ í—ˆìš©`         | `[length number]`          
+`maxLength`        | `íŒŒë¼ë¯¸í„° ê°’ ì´í•˜ì˜ ë¬¸ì ê¸¸ì´ë§Œ í—ˆìš©`         | `[max length number]`      
+`minLength`        | `íŒŒë¼ë¯¸í„° ê°’ ì´ìƒì˜ ë¬¸ì ê¸¸ì´ë§Œ í—ˆìš©`         | `[min length number]`      
+`betweenLength`    | `íŒŒë¼ë¯¸í„° ê°’ ì‚¬ì´ì˜ ë¬¸ì ê¸¸ì´ë§Œ í—ˆìš©`         | `[min length number, max length number]`  
+`onlyNum`          | `ìˆ«ìë§Œ í—ˆìš©`                               | `none`                     
+`yyyymmdd`         | `ë…„ë„4ìë¦¬ ì›”2ìë¦¬ ì¼2ìë¦¬`                  | `none`                     
+`equalTo`          | `ë‹¤ë¥¸ elementì™€ ê°’ ê°™ì€ì§€ íŒë‹¨`              | `[element id]`                     
+`notKorean`        | `í•œê¸€ ì…ë ¥ ë¶ˆê°€ëŠ¥`                           | `none`                     
 <br/>
 
 ## Auth
