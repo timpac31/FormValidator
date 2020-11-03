@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+	<title>formValidator Example</title>
+	<link rel="stylesheet" href="example.css" type="text/css">
+	<script type="text/javascript" src="formValidator.js" charset="euc-kr"></script>
+ </head>
+ <body>
+
+<h2>Examples</h2>
+<div class="table-layout">
+	<div class="table-cell">
+		<form id="frm" name="myForm">
+			<label for="username" class="tag">이름</label><input type="text" id="username" name="username" valid-name="성명" valid-rule="required|betweenLength-2-10" /><br/>
+			<label for="userid" class="tag">아이디</label><input type="text" id="userid" name="userid" valid-rule="required|betweenLength-5-10|notKorean" /><br/>
+			<label for="age" class="tag">나이</label><input type="text" id="age" name="age" valid-rule="onlyNum|min-10" /><br/>
+			<label for="email" class="tag">이메일</label><input type="text" id="email" name="email" valid-rule="required|email" /><br/>
+			<label for="phone" class="tag">전화번호</label><input type="text" id="phone" name="phone" valid-rule="phone|maxLength-15" /><br/>
+			
+			<label for="birthday" class="tag">생년월일</label><input type="text" id="birthday" name="birthday" valid-rule="yyyymmdd" /><br/>
+			<select name="job" multiple valid-name="직업" valid-rule="required">
+				<option value="">직업선택</option>
+				<option value="programmer">프로그래머</option>
+				<option value="salseman">세일즈맨</option>
+				<option value="student">학생</option>
+				<option value="model">모델</option>
+			</select>
+			<br/>
+			<fieldset valid-group="gender" valid-name="성별" valid-rule="required">
+				<legend>성별</legend>
+				<input type="radio" name="gender" id="gender1" value="male" /><label for="gender1">남자</label>
+				<input type="radio" name="gender" id="gender2" value="female" /><label for="gender2">여자</label>
+			</fieldset>
+			<br/>
+			<fieldset valid-group="hobby" valid-name="취미" valid-rule="required">
+				<legend>취미</legend>
+				<input type="checkbox" name="hobby" id="hobby1" value="독서" /><label for="hobby1">독서</label>
+				<input type="checkbox" name="hobby" id="hobby2" value="운동" /><label for="hobby2">운동</label>
+				<input type="checkbox" name="hobby" id="hobby3" value="게임" /><label for="hobby3">게임</label>
+				<input type="checkbox" name="hobby" id="hobby4" value="웹서핑" /><label for="hobby4">웹서핑</label>
+			</fieldset>
+			<br/>
+			<label for="pass1" class="tag">패스워드</label><input type="password" id="pass1" name="pass1" valid-rule="required|maxLength-10" /><br/>
+			<label for="pass2" class="tag">패스워드 확인</label><input type="password" id="pass2" name="pass2" valid-rule="required|equalTo-pass1" /><br/>		
+			<button type="button" class="btn" onclick="validate(myForm);">submit</button>			
+		</form>
+	</div>
+
+	<div class="table-cell">
+		<div class="desc">
+			<p> valid-rule 속성을 변경하면서 테스트해보세요 </p>
+
+		</div>
+	</div>
+</div>
+	
+  <script>
+  var alertOption = 'window';
+  //var alertOption = 'text';
+
+  function validate(form) {
+	if(formValidator.validate(form, alertOption)) {
+		alert('success');
+	}
+  }
+
+	
+  </script>
+
+ </body>
+</html>	
