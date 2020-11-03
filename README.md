@@ -1,5 +1,5 @@
 ## formValidator
-> HTML Element Attribute 기반 form 유효성 검사 라이브러리
+> HTML 기반 form 유효성 검사 라이브러리
 <br/>
 
 ## Simple Practice 
@@ -42,11 +42,11 @@ function validate(form) {
 
 <script>
 function validate(form) {
-	if(formValidator.required(form.username.value)) {
+	if(!formValidator.required(form.username.value)) {
 		alert('이름은 필수입력입니다');
 		return false;
 	}
-	if(formValidator.email(form.usermail.value)) {
+	if(!formValidator.email(form.usermail.value)) {
 		alert('이메일 형식이 잘못되었습니다');
 		return false;
 	}
