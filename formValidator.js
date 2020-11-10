@@ -1,6 +1,7 @@
 /*
  * author : 조영덕
  * since : 2020.10.
+ * github : https://github.com/timpac31/FormValidator
  */
 
 var formValidator = (function() {
@@ -66,7 +67,7 @@ var formValidator = (function() {
 					return ret;
 				}, []);
 				
-				var name = '';	//name 우선순위 1. valid-name attribute 2.label text 3.element name
+				var name = '';
 				if(el.getAttribute("valid-name")) {
 					name = el.getAttribute("valid-name");
 				}else {
